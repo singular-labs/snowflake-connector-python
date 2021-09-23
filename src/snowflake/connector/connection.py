@@ -931,6 +931,7 @@ class SnowflakeConnection(object):
         describe_only: bool = False,
         _no_results: bool = False,
         _update_current_object: bool = True,
+        _no_retry: bool = False,
     ):
         """Executes a query with a sequence counter."""
         logger.debug("_cmd_query")
@@ -971,6 +972,7 @@ class SnowflakeConnection(object):
             client=client,
             _no_results=_no_results,
             _include_retry_params=True,
+            _no_retry=_no_retry,
         )
 
         if ret is None:
