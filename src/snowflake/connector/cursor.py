@@ -791,6 +791,7 @@ class SnowflakeCursor:
         for documentation.
         """
         kwargs["_exec_async"] = True
+        kwargs["_no_retry"] = kwargs.pop("no_retry", False)
         return self.execute(*args, **kwargs)
 
     def describe(self, *args, **kwargs) -> List[ResultMetadata]:
